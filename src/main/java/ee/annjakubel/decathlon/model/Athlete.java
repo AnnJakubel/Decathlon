@@ -13,18 +13,20 @@ import javax.persistence.*;
 @Entity
 public class Athlete {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String country;
     private int age;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    //sports
+    private int oneHundredMeters;
+    private int longJump;
+    private int shotPut;
+    private int highJump;
+    private int fourHundredMeters;
+    private int hurdles;
+    private int discusThrow;
+    private int poleVault;
+    private int javelinThrow;
+    private int fifteenHundredMeters;
 }
