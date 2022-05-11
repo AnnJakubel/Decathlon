@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class ResultsController {
@@ -39,57 +38,67 @@ public class ResultsController {
 
 
     //RequestParam!
-    @PostMapping("onehundredmeters/{id}/{value}")
-    public ResponseEntity<Athlete> saveOneHundredMetersResult(@PathVariable Long id,
-                                                                    @PathVariable int value) {
-
-        Athlete updatedAthlete = athleteRepository.getById(id);
-        updatedAthlete.setOneHundredMeters(value);
-        athleteRepository.save(updatedAthlete);
-
-        return ResponseEntity.ok().body(updatedAthlete);
+    @PutMapping("decathlon/onehundredmeters")
+    public ResponseEntity<Athlete> saveOneHundredMetersResult(@RequestBody Athlete athlete) {
+        resultsService.updateOneHundredMetersResult(athlete);
+        return ResponseEntity.ok().body(athleteRepository.findById(athlete.getId()).get());
     }
 
-    /*@PostMapping
-    public void getLongJumpResult() {
-
+    @PutMapping("decathlon/longjump")
+    public ResponseEntity<Athlete> getLongJumpResult(@RequestBody Athlete athlete) {
+        resultsService.updateLongJumpResult(athlete);
+        return ResponseEntity.ok().body(athleteRepository.findById(athlete.getId()).get());
     }
 
-    @PostMapping
-    public void getShotPutResult() {
-
+    @PutMapping("decathlon/shotput")
+    public ResponseEntity<Athlete> getShotPutResult(@RequestBody Athlete athlete) {
+        resultsService.updateShotPutResult(athlete);
+        return ResponseEntity.ok().body(athleteRepository.findById(athlete.getId()).get());
     }
 
-    @PostMapping
-    public void getHighJumpResult() {
-
+    @PutMapping("decathlon/highjump")
+    public ResponseEntity<Athlete> getHighJumpResult(@RequestBody Athlete athlete) {
+        resultsService.updateHighJumpResult(athlete);
+        return ResponseEntity.ok().body(athleteRepository.findById(athlete.getId()).get());
     }
-    @PostMapping
-    public void getFourHundredMeters() {
-    }
-
-    @PostMapping
-    public void getHurdlesResult() {
-
+    @PutMapping("decathlon/fourhundredmeters")
+    public ResponseEntity<Athlete> getFourHundredMeters(@RequestBody Athlete athlete) {
+        resultsService.updateFourHundredMetersResult(athlete);
+        return ResponseEntity.ok().body(athleteRepository.findById(athlete.getId()).get());
     }
 
-    @PostMapping
-    public void getDiscusThrowResult() {
+    @PutMapping("decathlon/hurdles")
+    public ResponseEntity<Athlete> getHurdlesResult(@RequestBody Athlete athlete) {
+        resultsService.updateHurdlesResult(athlete);
+        return ResponseEntity.ok().body(athleteRepository.findById(athlete.getId()).get());
 
     }
 
-    @PostMapping
-    public void getPoleVaultResult() {
+    @PutMapping("decathlon/discusthrow")
+    public ResponseEntity<Athlete> getDiscusThrowResult(@RequestBody Athlete athlete) {
+        resultsService.updateDiscusThrowResult(athlete);
+        return ResponseEntity.ok().body(athleteRepository.findById(athlete.getId()).get());
 
     }
 
-    @PostMapping
-    public void getJavelinThrowResult() {
+    @PutMapping("decathlon/polevault")
+    public ResponseEntity<Athlete> getPoleVaultResult(@RequestBody Athlete athlete) {
+        resultsService.updatePoleVaultResult(athlete);
+        return ResponseEntity.ok().body(athleteRepository.findById(athlete.getId()).get());
 
     }
 
-    @PostMapping
-    public void getFifteenHundredMetersResult() {
-    }*/
+    @PutMapping("decathlon/javelinthrow")
+    public ResponseEntity<Athlete> getJavelinThrowResult(@RequestBody Athlete athlete) {
+        resultsService.updateJavelinThrowResult(athlete);
+        return ResponseEntity.ok().body(athleteRepository.findById(athlete.getId()).get());
+
+    }
+
+    @PutMapping("decathlon/fifteenhundredmeters")
+    public ResponseEntity<Athlete> getFifteenHundredMetersResult(@RequestBody Athlete athlete) {
+        resultsService.updateFifteenHundredMetersResult(athlete);
+        return ResponseEntity.ok().body(athleteRepository.findById(athlete.getId()).get());
+    }
 
 }

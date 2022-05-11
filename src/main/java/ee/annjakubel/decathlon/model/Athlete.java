@@ -29,4 +29,5 @@ public class Athlete {
     private int poleVault;
     private int javelinThrow;
     private int fifteenHundredMeters;
+    private int pointsSum;
 }
