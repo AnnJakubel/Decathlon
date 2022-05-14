@@ -1,4 +1,4 @@
-package ee.annjakubel.decathlon.model;
+package ee.annjakubel.decathlon.model.database;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

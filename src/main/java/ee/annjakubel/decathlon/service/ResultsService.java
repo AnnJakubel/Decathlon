@@ -1,6 +1,6 @@
 package ee.annjakubel.decathlon.service;
 
-import ee.annjakubel.decathlon.model.Athlete;
+import ee.annjakubel.decathlon.model.database.Athlete;
 import ee.annjakubel.decathlon.repository.AthleteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
