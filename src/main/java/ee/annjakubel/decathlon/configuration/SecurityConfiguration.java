@@ -2,10 +2,12 @@ package ee.annjakubel.decathlon.configuration;
 
 import ee.annjakubel.decathlon.authentication.TokenParser;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+@Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Value("${token.key}")
@@ -13,9 +15,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-//        super.configure(http);
-
-        //TODO: authorizeRequests k6ik p2ringud vaha lubada
 
         TokenParser tokenParser = new TokenParser(authenticationManager());
         tokenParser.setKey(key);
